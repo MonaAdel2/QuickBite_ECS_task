@@ -6,6 +6,6 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "day_of_week")
 data class DayOfWeek(
     @PrimaryKey(autoGenerate = true)
-    var dayId: Int,
+    var dayId: Int? = null,
     var dayName: String
 )

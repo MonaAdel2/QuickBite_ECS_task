@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "meals")
 data class Meal(
     @PrimaryKey
-    var mealId:Int,
+    var mealId:Int? =null,
     var mealName: String?,
     var mealDescription: String?,
     var category: String?

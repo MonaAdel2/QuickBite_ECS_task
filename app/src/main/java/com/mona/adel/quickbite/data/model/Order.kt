@@ -11,7 +11,7 @@ import androidx.room.PrimaryKey
     ])
 data class Order(
     @PrimaryKey(autoGenerate = true)
-    var orderId: Int,
+    var orderId: Int? =null,
     var userId: Int,
     var mealId: Int,
     var orderDate:String
