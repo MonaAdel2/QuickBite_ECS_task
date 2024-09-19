@@ -54,10 +54,14 @@ dependencies {
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
     kapt("androidx.room:room-compiler:$room_version")
+    implementation ("androidx.room:room-ktx:$room_version")
 
     // navigation component
     val nav_version = "2.8.0"
     implementation("androidx.navigation:navigation-fragment:$nav_version")
     implementation("androidx.navigation:navigation-ui:$nav_version")
+
+    // splash screen
+    implementation("androidx.core:core-splashscreen:1.0.0")
 
 }
