@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import com.mona.adel.quickbite.R
 import com.mona.adel.quickbite.data.LocalDataSourceImp
 import com.mona.adel.quickbite.data.model.DayOfWeek
@@ -15,12 +17,17 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
 
+        val mainNavHostFragment =
+            supportFragmentManager.findFragmentById(R.id.app_nav_host) as NavHostFragment
+        navController = mainNavHostFragment.navController
     }
 
     private fun insertDummyData(){
