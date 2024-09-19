@@ -44,6 +44,14 @@ class LocalDataSourceImp(val context: Context): LocalDataSource {
         userDao.insertUser(newUser)
     }
 
+    override suspend fun getUserByEmail(email: String, password: String): User? {
+        return userDao.getUserByEmail(email, password)
+    }
+
+    override suspend fun getUserById(userId: Int): User? {
+        return userDao.getUserById(userId)
+    }
+
     override suspend fun insertDay(newDay: DayOfWeek) {
         dayOfWeekDao.insertDay(newDay)
     }

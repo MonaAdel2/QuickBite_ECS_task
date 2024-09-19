@@ -15,6 +15,10 @@ interface LocalDataSource {
 
     suspend fun insertUser(newUser: User)
 
+    suspend fun getUserByEmail(email: String, password: String): User?
+
+    suspend fun getUserById(userId: Int): User?
+
     suspend fun insertDay(newDay: DayOfWeek)
 
 }
