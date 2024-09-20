@@ -8,6 +8,6 @@ import androidx.room.Entity
     primaryKeys = ["mealId", "dayId"]
 )
 data class MealDayCrossRef(
-    var mealId: Int,
+    var mealId: Long,
     var dayId: Int
 )

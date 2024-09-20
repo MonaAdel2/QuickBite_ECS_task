@@ -5,6 +5,7 @@ import com.mona.adel.quickbite.data.model.Meal
 import com.mona.adel.quickbite.data.model.Order
 import com.mona.adel.quickbite.data.model.User
 import com.mona.adel.quickbite.data.relations.DayWithMeals
+import com.mona.adel.quickbite.data.relations.MealDayCrossRef
 
 interface LocalDataSource {
 
@@ -12,7 +13,7 @@ interface LocalDataSource {
 
     suspend fun getAllMealsPerDay(): List<Meal>
 
-    suspend fun insertMeal(newMeal: Meal)
+    suspend fun insertMeal(newMeal: Meal): Long?
 
     suspend fun insertUser(newUser: User)
 
@@ -23,5 +24,7 @@ interface LocalDataSource {
     suspend fun insertDay(newDay: DayOfWeek)
 
     suspend fun getMealsByDay(day: String): DayWithMeals
+
+    suspend fun insertMealDay(mealDayCrossRef: MealDayCrossRef)
 
 }

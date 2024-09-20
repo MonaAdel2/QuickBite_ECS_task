@@ -11,6 +11,7 @@ import com.mona.adel.quickbite.data.model.Meal
 import com.mona.adel.quickbite.data.model.Order
 import com.mona.adel.quickbite.data.model.User
 import com.mona.adel.quickbite.data.relations.DayWithMeals
+import com.mona.adel.quickbite.data.relations.MealDayCrossRef
 
 class LocalDataSourceImp(val context: Context): LocalDataSource {
 
@@ -37,8 +38,8 @@ class LocalDataSourceImp(val context: Context): LocalDataSource {
         TODO("Not yet implemented")
     }
 
-    override suspend fun insertMeal(newMeal: Meal) {
-        mealDao.insertMeal(newMeal)
+    override suspend fun insertMeal(newMeal: Meal): Long? {
+        return mealDao.insertMeal(newMeal)
     }
 
     override suspend fun insertUser(newUser: User) {
@@ -59,5 +60,9 @@ class LocalDataSourceImp(val context: Context): LocalDataSource {
 
     override suspend fun getMealsByDay(day: String): DayWithMeals {
         return mealDao.getMealsByDay(day)
+    }
+
+    override suspend fun insertMealDay(mealDayCrossRef: MealDayCrossRef) {
+        mealDao.insertDayMeal(mealDayCrossRef)
     }
 }
