@@ -9,6 +9,6 @@ data class Meal(
     @PrimaryKey
     var mealId:Int? =null,
     var mealName: String?,
-    var mealDescription: String?,
-    var category: String?
+    var category: String?,
+    var price: Double?
 )
