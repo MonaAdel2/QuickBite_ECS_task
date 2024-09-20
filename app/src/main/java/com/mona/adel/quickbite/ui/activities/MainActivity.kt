@@ -69,8 +69,6 @@ class MainActivity : AppCompatActivity() {
             local.insertUser(User(userName="Mohamed Zaki", email="mohamed@gmail.com", password = "mohamed123", role = "user"))
             local.insertUser(User(userName="Fatma Hany", email="fatma@gmail.com", password = "fatma123", role = "user"))
 
-            local.insertMeal(Meal(mealName = "Chicken Burger", category = "Chicken", price = 20.0))
-
 
         }
     }
