@@ -10,6 +10,7 @@ import com.mona.adel.quickbite.data.model.DayOfWeek
 import com.mona.adel.quickbite.data.model.Meal
 import com.mona.adel.quickbite.data.model.Order
 import com.mona.adel.quickbite.data.model.User
+import com.mona.adel.quickbite.data.relations.DayWithMeals
 
 class LocalDataSourceImp(val context: Context): LocalDataSource {
 
@@ -54,5 +55,9 @@ class LocalDataSourceImp(val context: Context): LocalDataSource {
 
     override suspend fun insertDay(newDay: DayOfWeek) {
         dayOfWeekDao.insertDay(newDay)
+    }
+
+    override suspend fun getMealsByDay(day: String): DayWithMeals {
+        return mealDao.getMealsByDay(day)
     }
 }

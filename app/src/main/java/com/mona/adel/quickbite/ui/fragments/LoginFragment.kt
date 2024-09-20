@@ -18,6 +18,7 @@ import com.mona.adel.quickbite.data.LocalDataSourceImp
 import com.mona.adel.quickbite.data.repository.LoginRepoImp
 import com.mona.adel.quickbite.databinding.FragmentLoginBinding
 import com.mona.adel.quickbite.ui.activities.AdminActivity
+import com.mona.adel.quickbite.ui.activities.MainActivity
 import com.mona.adel.quickbite.ui.factories.LoginViewModelFactory
 import com.mona.adel.quickbite.ui.viewModels.LoginViewModel
 import kotlin.math.log
@@ -41,6 +42,8 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (activity as? MainActivity)?.hideBottomNavigationView()
 
         getViewModelReady()
 
