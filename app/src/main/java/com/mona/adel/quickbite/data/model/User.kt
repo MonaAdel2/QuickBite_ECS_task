@@ -10,5 +10,6 @@ data class User(
     var userName: String?,
     var email: String?,
     var password: String?,
-    var role: String?
+    var role: String?,
+    val lastOrderId: Int? = null
 )

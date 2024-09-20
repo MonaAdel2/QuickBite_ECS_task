@@ -10,7 +10,7 @@ import com.mona.adel.quickbite.data.dao.OrderDao
 import com.mona.adel.quickbite.data.dao.UserDao
 import com.mona.adel.quickbite.data.model.DayOfWeek
 import com.mona.adel.quickbite.data.model.Meal
-import com.mona.adel.quickbite.data.model.MealDayCrossRef
+import com.mona.adel.quickbite.data.relations.MealDayCrossRef
 import com.mona.adel.quickbite.data.model.Order
 import com.mona.adel.quickbite.data.model.User
 

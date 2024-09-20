@@ -1,4 +1,4 @@
-package com.mona.adel.quickbite.data.model
+package com.mona.adel.quickbite.data.relations
 
 import androidx.room.Entity
 
