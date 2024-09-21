@@ -23,6 +23,7 @@ import com.mona.adel.quickbite.data.repository.ControlMealsRepoImp
 import com.mona.adel.quickbite.databinding.DialogAddMealBinding
 import com.mona.adel.quickbite.databinding.FragmentControlMealsBinding
 import com.mona.adel.quickbite.ui.adapters.AdminMealsAdapter
+import com.mona.adel.quickbite.ui.adapters.AdminMealsAdapter2
 import com.mona.adel.quickbite.ui.factories.ControlMealsViewModelFactory
 import com.mona.adel.quickbite.ui.viewModels.ControlMealsViewModel
 
@@ -34,7 +35,7 @@ class ControlMealsFragment : Fragment() {
 
     private lateinit var addMealDialog: Dialog
     private lateinit var controlMealsViewModel: ControlMealsViewModel
-    private lateinit var adminMealsAdapter: AdminMealsAdapter
+    private lateinit var adminMealsAdapter: AdminMealsAdapter2
 
     private var dayForNewMeal = -1
 
@@ -80,9 +81,13 @@ class ControlMealsFragment : Fragment() {
         controlMealsViewModel.meals.observe(requireActivity()){meals->
             if (meals!=null){
 
-                adminMealsAdapter = AdminMealsAdapter(
-                    { meal -> controlMealsViewModel.deleteMeal(meal) },
-                    { mealId -> controlMealsViewModel.getDaysByMeal(mealId) }
+//                adminMealsAdapter = AdminMealsAdapter(
+//                    { meal -> controlMealsViewModel.deleteMeal(meal) },
+//                    { mealId -> controlMealsViewModel.getDaysByMeal(mealId) }
+//                )
+
+                adminMealsAdapter = AdminMealsAdapter2(
+                    { meal -> controlMealsViewModel.deleteMeal(meal) }
                 )
 
 
@@ -109,7 +114,8 @@ class ControlMealsFragment : Fragment() {
 
         controlMealsViewModel.allMealsWithDays.observe(viewLifecycleOwner) { list ->
             list?.let {
-
+                adminMealsAdapter.setMealsWithDays(list)
+                Log.d(TAG, "onViewCreated: ************************** ${list}")
             }
         }
 
