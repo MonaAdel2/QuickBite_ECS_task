@@ -23,8 +23,8 @@ class ControlMealsViewModel(val controlMealsRepo: ControlMealsRepo): ViewModel()
     private var _days = MutableLiveData<MealWithDays>()
     val days : LiveData<MealWithDays> = _days
 
-    private var _allMealsWithDays = MutableLiveData<List<MealWithDays>>()
-    val allMealsWithDays : LiveData<List<MealWithDays>> = _allMealsWithDays
+//    private var _allMealsWithDays = MutableLiveData<List<MealWithDays>>()
+//    val allMealsWithDays : LiveData<List<MealWithDays>> = _allMealsWithDays
 
     // create
     fun insertMeal(newMeal: Meal){

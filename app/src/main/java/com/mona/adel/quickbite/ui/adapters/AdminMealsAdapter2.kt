@@ -21,7 +21,6 @@ class AdminMealsAdapter2(private val onDeleteMeal: (Meal) -> Unit)
     var onItemClick: ((Meal, Int)->Unit)?=null
 
     private var meals = mutableListOf<Meal>()
-    private var mealsWithDays = mutableListOf<MealWithDays>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layout = LayoutInflater.from(parent.context).inflate(R.layout.item_meal_control, parent, false)
@@ -51,16 +50,22 @@ class AdminMealsAdapter2(private val onDeleteMeal: (Meal) -> Unit)
             onItemClick?.invoke(meal, position)
         }
 
-        // Find the corresponding MealWithDays entry using mealId
-        val mealWithDays = mealsWithDays.find { it.meal.mealId == meal.mealId }
-        Log.d(TAG, "onBindViewHolder: the meal at pos $position has days ${mealWithDays}")
+        holder.mealDay.text = getDaysAsString(meals[position])
+
 
 
     }
 
-
-    private fun formatDaysText(days: List<DayOfWeek>): String{
-            return days.joinToString(", ") { it.dayName }
+    private fun getDaysAsString(meal: Meal): String {
+        val days = mutableListOf<String>()
+        if (meal.saturday) days.add("Saturday")
+        if (meal.sunday) days.add("Sunday")
+        if (meal.monday) days.add("Monday")
+        if (meal.tuesday) days.add("Tuesday")
+        if (meal.wednesday) days.add("Wednesday")
+        if (meal.thursday) days.add("Thursday")
+        if (meal.friday) days.add("Friday")
+        return days.joinToString(", ")
     }
 
     fun updateMeal(updatedMeal: Meal, position: Int) {
@@ -74,28 +79,10 @@ class AdminMealsAdapter2(private val onDeleteMeal: (Meal) -> Unit)
         notifyItemInserted(meals.size - 1) // Notify adapter of new insertion
     }
 
-
-
     fun setData(data: List<Meal>){
         meals = data.toMutableList()
         notifyDataSetChanged()
     }
-
-//    fun updateMealDays(mealWithDays: MealWithDays) {
-//        val mealPosition = meals.indexOfFirst { it.mealId == mealWithDays.meal.mealId }
-//        Log.d(TAG, "updateMealDays: ${mealWithDays.days}")
-//        if (mealPosition != -1) {
-//            Handler(Looper.getMainLooper()).post {
-//                notifyItemChanged(mealPosition) // This ensures the update occurs after the layout pass
-//            }
-//        }
-//    }
-
-    fun setMealsWithDays (mealsWithDaysList: List<MealWithDays>){
-        mealsWithDays = mealsWithDaysList.toMutableList()
-        notifyDataSetChanged()
-    }
-
 
     class MyViewHolder(item: View): RecyclerView.ViewHolder(item) {
 
