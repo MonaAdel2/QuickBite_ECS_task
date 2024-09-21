@@ -32,7 +32,7 @@ class AdminActivity : AppCompatActivity() {
         binding.bottomNavigationAdmin.setOnItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.home -> {
-                    navController.navigate(R.id.homeFragment)
+                    navController.navigate(R.id.homeFragment2)
                     true
                 }
                 R.id.cart -> {
