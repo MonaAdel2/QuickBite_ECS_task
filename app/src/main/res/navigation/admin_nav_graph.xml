@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/admin_nav_graph"
-    app:startDestination="@id/controlMealsFragment">
+    app:startDestination="@id/homeFragment2">
 
     <fragment
         android:id="@+id/homeFragment2"
@@ -18,5 +18,9 @@
         android:id="@+id/controlMealsFragment"
         android:name="com.mona.adel.quickbite.ui.fragments.ControlMealsFragment"
         android:label="fragment_control_meals"
-        tools:layout="@layout/fragment_control_meals" />
+        tools:layout="@layout/fragment_control_meals" >
+        <action
+            android:id="@+id/action_controlMealsFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+    </fragment>
 </navigation>

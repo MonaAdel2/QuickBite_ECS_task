@@ -12,6 +12,7 @@ import com.mona.adel.quickbite.data.model.Order
 import com.mona.adel.quickbite.data.model.User
 import com.mona.adel.quickbite.data.relations.DayWithMeals
 import com.mona.adel.quickbite.data.relations.MealDayCrossRef
+import com.mona.adel.quickbite.data.relations.MealWithDays
 
 class LocalDataSourceImp(val context: Context): LocalDataSource {
 
@@ -34,14 +35,14 @@ class LocalDataSourceImp(val context: Context): LocalDataSource {
         orderDao.insertOrder(newOrder)
     }
 
-    override suspend fun getAllMealsPerDay(): List<Meal> {
-        TODO("Not yet implemented")
+
+    override suspend fun insertDay(newDay: DayOfWeek) {
+        dayOfWeekDao.insertDay(newDay)
     }
 
-    override suspend fun insertMeal(newMeal: Meal): Long? {
-        return mealDao.insertMeal(newMeal)
-    }
 
+
+    // for user
     override suspend fun insertUser(newUser: User) {
         userDao.insertUser(newUser)
     }
@@ -54,15 +55,42 @@ class LocalDataSourceImp(val context: Context): LocalDataSource {
         return userDao.getUserById(userId)
     }
 
-    override suspend fun insertDay(newDay: DayOfWeek) {
-        dayOfWeekDao.insertDay(newDay)
-    }
 
+    // for home
     override suspend fun getMealsByDay(day: String): DayWithMeals {
         return mealDao.getMealsByDay(day)
     }
 
+    // for new meals
     override suspend fun insertMealDay(mealDayCrossRef: MealDayCrossRef) {
         mealDao.insertDayMeal(mealDayCrossRef)
     }
+    override suspend fun insertMeal(newMeal: Meal): Long? {
+        return mealDao.insertMeal(newMeal)
+    }
+
+
+    // delete meals
+    override suspend fun deleteMeal(meal: Meal) {
+        mealDao.deleteMeal(meal)
+    }
+
+    // retreive all meals
+    override suspend fun getAllMeals(): List<Meal> {
+        return mealDao.getAllMeals()
+    }
+
+    // update
+    override suspend fun updateMeal(meal: Meal) {
+        mealDao.updateMeal(meal)
+    }
+
+    override suspend fun getDaysByMeal(mealId: Int): MealWithDays {
+        return mealDao.getDaysByMeal(mealId)
+    }
+
+    override suspend fun getAllMealsWithDays(): List<MealWithDays> {
+        return mealDao.getAllMealsWithDays()
+    }
+
 }

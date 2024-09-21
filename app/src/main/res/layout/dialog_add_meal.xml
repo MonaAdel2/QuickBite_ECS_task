@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:text="Add new meal"
+                android:text="Meal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -104,29 +104,28 @@
                     android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/days_list"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                style="@style/ThemeOverlay.Material3.AutoCompleteTextView.FilledBox"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="24dp"
-                android:hint="Day"
-                app:boxCornerRadiusBottomEnd="20dp"
-                app:boxCornerRadiusBottomStart="20dp"
-                app:boxCornerRadiusTopEnd="20dp"
-                app:boxCornerRadiusTopStart="20dp"
+                android:hint="Select Options"
                 app:layout_constraintEnd_toEndOf="@+id/txt_et_meal_name"
                 app:layout_constraintStart_toStartOf="@+id/txt_et_meal_name"
                 app:layout_constraintTop_toBottomOf="@+id/txt_et_meal_price">
 
-                <AutoCompleteTextView
+                <TextView
+                    android:id="@+id/tvSelectedOptions"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="none" />
+                    android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                    android:padding="16dp"
+                    android:text="Select Days" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
 
             <Button
                 android:id="@+id/btn_add_meal_admin"
@@ -134,7 +133,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="32dp"
-                android:text="Add"
+                android:text="Ok"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/txt_et_meal_name"
                 app:layout_constraintStart_toStartOf="@+id/txt_et_meal_name"
