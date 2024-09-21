@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         navController = mainNavHostFragment.navController
 
 
-//        insertDummyData()
+        insertDummyData()
 
         binding.bottomNavigationMain.setOnItemSelectedListener { item ->
             when(item.itemId) {
@@ -58,9 +58,9 @@ class MainActivity : AppCompatActivity() {
 
         var local = LocalDataSourceImp(this)
         CoroutineScope(Dispatchers.IO).launch {
-            for (day in days){
-                local.insertDay(DayOfWeek( dayName = day.lowercase().trim()))
-            }
+//            for (day in days){
+//                local.insertDay(DayOfWeek( dayName = day.lowercase().trim()))
+//            }
 
             local.insertUser(User(userName="Mona Adel", email="admin@gmail.com", password = "admin123", role = "admin"))
             local.insertUser(User(userName="Noha Ali", email="noha@gmail.com", password = "noha123", role = "user"))

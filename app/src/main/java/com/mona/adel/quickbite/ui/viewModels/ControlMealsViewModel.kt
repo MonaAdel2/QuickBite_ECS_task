@@ -33,11 +33,11 @@ class ControlMealsViewModel(val controlMealsRepo: ControlMealsRepo): ViewModel()
         }
 
     }
-    fun insertDayOfNewMeal(mealDayCrossRef: MealDayCrossRef){
-        viewModelScope.launch {
-            controlMealsRepo.insertMealDay(mealDayCrossRef)
-        }
-    }
+//    fun insertDayOfNewMeal(mealDayCrossRef: MealDayCrossRef){
+//        viewModelScope.launch {
+//            controlMealsRepo.insertMealDay(mealDayCrossRef)
+//        }
+//    }
 
     // update
 
@@ -61,17 +61,17 @@ class ControlMealsViewModel(val controlMealsRepo: ControlMealsRepo): ViewModel()
         }
     }
 
-    fun getDaysByMeal(mealId: Int){
-        viewModelScope.launch {
-            _days.value = controlMealsRepo.getDaysByMeal(mealId)
-        }
-
-    }
-
-    fun getALlMealsAndDays(){
-       viewModelScope.launch {
-            _allMealsWithDays.value = controlMealsRepo.getAllMealsWithDays()
-       }
-    }
+//    fun getDaysByMeal(mealId: Int){
+//        viewModelScope.launch {
+//            _days.value = controlMealsRepo.getDaysByMeal(mealId)
+//        }
+//
+//    }
+//
+//    fun getALlMealsAndDays(){
+//       viewModelScope.launch {
+//            _allMealsWithDays.value = controlMealsRepo.getAllMealsWithDays()
+//       }
+//    }
 
 }

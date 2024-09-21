@@ -5,5 +5,7 @@ import com.mona.adel.quickbite.data.relations.DayWithMeals
 
 interface HomeRepo {
 
-    suspend fun getMealsByDay(day: String): DayWithMeals
+//    suspend fun getMealsByDay(day: String): DayWithMeals
+    suspend fun getMealsByDay(day: String): List<Meal>
+
 }

@@ -36,9 +36,11 @@ class LocalDataSourceImp(val context: Context): LocalDataSource {
     }
 
 
-    override suspend fun insertDay(newDay: DayOfWeek) {
-        dayOfWeekDao.insertDay(newDay)
-    }
+
+
+//    override suspend fun insertDay(newDay: DayOfWeek) {
+//        dayOfWeekDao.insertDay(newDay)
+//    }
 
 
 
@@ -57,14 +59,19 @@ class LocalDataSourceImp(val context: Context): LocalDataSource {
 
 
     // for home
-    override suspend fun getMealsByDay(day: String): DayWithMeals {
+//    override suspend fun getMealsByDay(day: String): DayWithMeals {
+//        return mealDao.getMealsByDay(day)
+//    }
+
+    override suspend fun getMealsByDay(day: String): List<Meal> {
         return mealDao.getMealsByDay(day)
     }
 
+
     // for new meals
-    override suspend fun insertMealDay(mealDayCrossRef: MealDayCrossRef) {
-        mealDao.insertDayMeal(mealDayCrossRef)
-    }
+//    override suspend fun insertMealDay(mealDayCrossRef: MealDayCrossRef) {
+//        mealDao.insertDayMeal(mealDayCrossRef)
+//    }
     override suspend fun insertMeal(newMeal: Meal): Long? {
         return mealDao.insertMeal(newMeal)
     }
@@ -85,12 +92,12 @@ class LocalDataSourceImp(val context: Context): LocalDataSource {
         mealDao.updateMeal(meal)
     }
 
-    override suspend fun getDaysByMeal(mealId: Int): MealWithDays {
-        return mealDao.getDaysByMeal(mealId)
-    }
-
-    override suspend fun getAllMealsWithDays(): List<MealWithDays> {
-        return mealDao.getAllMealsWithDays()
-    }
+//    override suspend fun getDaysByMeal(mealId: Int): MealWithDays {
+//        return mealDao.getDaysByMeal(mealId)
+//    }
+//
+//    override suspend fun getAllMealsWithDays(): List<MealWithDays> {
+//        return mealDao.getAllMealsWithDays()
+//    }
 
 }

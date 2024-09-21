@@ -71,7 +71,7 @@ class ControlMealsFragment : Fragment() {
 
         controlMealsViewModel.newMeal.observe(requireActivity()){id->
             if (id != null){
-                addDayOfMeal(id)
+//                addDayOfMeal(id)
             }else{
                 Log.d(TAG, "onViewCreated: good game!!")
             }
@@ -222,11 +222,11 @@ class ControlMealsFragment : Fragment() {
 
     }
 
-    private fun addDayOfMeal(id:Long){
-        for (day in selectedDaysIdList){
-            controlMealsViewModel.insertDayOfNewMeal(MealDayCrossRef(id, day))
-        }
-    }
+//    private fun addDayOfMeal(id:Long){
+//        for (day in selectedDaysIdList){
+//            controlMealsViewModel.insertDayOfNewMeal(MealDayCrossRef(id, day))
+//        }
+//    }
 
     private fun getViewModelReady(){
         val factory = ControlMealsViewModelFactory(

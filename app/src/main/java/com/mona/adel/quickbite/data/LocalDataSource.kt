@@ -13,7 +13,8 @@ interface LocalDataSource {
     suspend fun insertOrder(newOrder: Order)
 
     // for home
-    suspend fun getMealsByDay(day: String): DayWithMeals
+//    suspend fun getMealsByDay(day: String): DayWithMeals
+    suspend fun getMealsByDay(day: String): List<Meal>
 
 
     // for user
@@ -22,12 +23,12 @@ interface LocalDataSource {
     suspend fun getUserById(userId: Int): User?
 
 
-    suspend fun insertDay(newDay: DayOfWeek)
+//    suspend fun insertDay(newDay: DayOfWeek)
 
 
 
     // for create new meals
-    suspend fun insertMealDay(mealDayCrossRef: MealDayCrossRef)
+//    suspend fun insertMealDay(mealDayCrossRef: MealDayCrossRef)
     suspend fun insertMeal(newMeal: Meal): Long?
 
     // delete
@@ -39,7 +40,7 @@ interface LocalDataSource {
     // update
     suspend fun updateMeal(meal: Meal)
 
-    suspend fun getDaysByMeal(mealId: Int): MealWithDays
-
-    suspend fun getAllMealsWithDays(): List<MealWithDays>
+//    suspend fun getDaysByMeal(mealId: Int): MealWithDays
+//
+//    suspend fun getAllMealsWithDays(): List<MealWithDays>
 }

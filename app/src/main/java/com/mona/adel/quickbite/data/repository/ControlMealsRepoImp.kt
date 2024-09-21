@@ -13,9 +13,9 @@ class ControlMealsRepoImp(val localDataSource: LocalDataSource): ControlMealsRep
         return localDataSource.insertMeal(newMeal)
     }
 
-    override suspend fun insertMealDay(mealDayCrossRef: MealDayCrossRef) {
-        localDataSource.insertMealDay(mealDayCrossRef)
-    }
+//    override suspend fun insertMealDay(mealDayCrossRef: MealDayCrossRef) {
+//        localDataSource.insertMealDay(mealDayCrossRef)
+//    }
 
 
     // delete
@@ -32,13 +32,13 @@ class ControlMealsRepoImp(val localDataSource: LocalDataSource): ControlMealsRep
         localDataSource.updateMeal(meal)
     }
 
-    override suspend fun getDaysByMeal(mealId: Int): MealWithDays {
-        return localDataSource.getDaysByMeal(mealId)
-    }
-
-    override suspend fun getAllMealsWithDays(): List<MealWithDays> {
-        return localDataSource.getAllMealsWithDays()
-    }
+//    override suspend fun getDaysByMeal(mealId: Int): MealWithDays {
+//        return localDataSource.getDaysByMeal(mealId)
+//    }
+//
+//    override suspend fun getAllMealsWithDays(): List<MealWithDays> {
+//        return localDataSource.getAllMealsWithDays()
+//    }
 
 
 }

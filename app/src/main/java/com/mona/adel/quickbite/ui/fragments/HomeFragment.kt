@@ -55,10 +55,13 @@ class HomeFragment : Fragment() {
 
         homeViewModel.mealsWithDay.observe(requireActivity()){it->
             if (it != null){
-                Log.d(TAG, "onViewCreated: the meals for today are: ${it.meals}")
-                // set the adapter and recyclerview
+                Log.d(TAG, "onViewCreated: the meals for today are: ${it}")
+//                // set the adapter and recyclerview
+//                homeMealsAdapter = HomeMealsAdapter()
+//                homeMealsAdapter.setData(it.meals)
+
                 homeMealsAdapter = HomeMealsAdapter()
-                homeMealsAdapter.setData(it.meals)
+                homeMealsAdapter.setData(it)
 
                 binding.rvMealsHome.adapter = homeMealsAdapter
                 binding.rvMealsHome.layoutManager = LinearLayoutManager(requireContext())
