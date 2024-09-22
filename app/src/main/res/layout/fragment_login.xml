@@ -6,16 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragments.LoginFragment">
 
-<!--    <ImageView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:src="@drawable/bg_asset"-->
-<!--        android:scaleType="centerCrop"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.797"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -99,5 +89,21 @@
         app:layout_constraintEnd_toEndOf="@+id/txt_et_email"
         app:layout_constraintStart_toStartOf="@+id/txt_et_email"
         app:layout_constraintTop_toBottomOf="@+id/txt_et_password" />
+
+    <TextView
+        android:id="@+id/tv_insert_dummy_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Insert Dummy Data"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

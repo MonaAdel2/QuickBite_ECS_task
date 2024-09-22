@@ -65,7 +65,6 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment:$nav_version")
     implementation("androidx.navigation:navigation-ui:$nav_version")
 
-    // splash screen
-    implementation("androidx.core:core-splashscreen:1.0.0")
+    implementation ("com.google.code.gson:gson:2.9.0")
 
 }

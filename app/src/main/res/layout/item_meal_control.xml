@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     app:cardElevation="3dp"
     app:cardCornerRadius="10dp"
-    android:layout_marginBottom="15dp"
+    android:layout_marginBottom="10dp"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,11 +28,15 @@
         <TextView
             android:id="@+id/tv_meal_name_admin"
             style="@style/meal_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
             android:text="Meal Name"
+            android:ellipsize="end"
+            android:maxLines="2"
+            app:layout_constraintEnd_toStartOf="@+id/btn_delete_meal_admin"
             app:layout_constraintStart_toEndOf="@+id/img_meal_admin"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,7 +45,7 @@
             style="@style/meal_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="1dp"
             android:text="Category"
             app:layout_constraintStart_toStartOf="@+id/tv_meal_name_admin"
             app:layout_constraintTop_toBottomOf="@+id/tv_meal_name_admin" />
@@ -51,7 +55,7 @@
             style="@style/meal_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="1dp"
             android:layout_marginBottom="8dp"
             android:text="Price. 15 $"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -64,13 +68,13 @@
             android:id="@+id/tv_meal_day_admin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="3dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            android:text="xxxxx"
-            android:textSize="16sp"
             android:ellipsize="end"
             android:maxLines="3"
+            android:text="Sunday"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
