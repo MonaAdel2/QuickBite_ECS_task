@@ -13,6 +13,7 @@ class LoginViewModel(val loginRepo: LoginRepo) : ViewModel() {
     private val _retrievedUser = MutableLiveData<User>()
     val retrievedUser: LiveData<User> = _retrievedUser
 
+    // Check the user if exists
     fun getUserByEmail(email: String, password: String){
         viewModelScope.launch {
             _retrievedUser.value = loginRepo.getUserByEmail(email, password)

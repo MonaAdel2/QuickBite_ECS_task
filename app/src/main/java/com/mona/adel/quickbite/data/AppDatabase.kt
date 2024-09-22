@@ -1,29 +1,27 @@
 package com.mona.adel.quickbite.data
 
 import android.content.Context
-import androidx.room.RoomDatabase
 import androidx.room.Database
 import androidx.room.Room
-import com.mona.adel.quickbite.data.dao.DayOfWeekDao
+import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.mona.adel.quickbite.data.dao.MealDao
 import com.mona.adel.quickbite.data.dao.OrderDao
 import com.mona.adel.quickbite.data.dao.UserDao
-import com.mona.adel.quickbite.data.model.DayOfWeek
 import com.mona.adel.quickbite.data.model.Meal
-import com.mona.adel.quickbite.data.relations.MealDayCrossRef
 import com.mona.adel.quickbite.data.model.Order
 import com.mona.adel.quickbite.data.model.User
 
 @Database(
-    entities = [User::class, Meal::class, DayOfWeek::class, MealDayCrossRef::class, Order::class],
+    entities = [User::class, Meal::class, Order::class],
     version = 1
 )
+@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
     abstract fun orderDao(): OrderDao
     abstract fun mealDao(): MealDao
-    abstract fun dayOfWeekDao(): DayOfWeekDao
 
     companion object{
         @Volatile

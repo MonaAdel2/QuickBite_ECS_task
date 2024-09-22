@@ -46,6 +46,8 @@
         <item name="colorSurfaceContainer">@color/md_theme_surfaceContainer</item>
         <item name="colorSurfaceContainerHigh">@color/md_theme_surfaceContainerHigh</item>
         <item name="colorSurfaceContainerHighest">@color/md_theme_surfaceContainerHighest</item>
+
+        <item name="android:fontFamily">@font/quicksand_bold</item>
     </style>
 
     <style name="text_title" parent="Widget.AppCompat.TextView">
@@ -63,18 +65,18 @@
     </style>
 
     <style name="meal_title" parent="Widget.AppCompat.TextView">
-        <item name="android:textSize">22sp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="meal_price" parent="Widget.AppCompat.TextView">
-        <item name="android:textSize">19sp</item>
+        <item name="android:textSize">17sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/md_theme_primary</item>
     </style>
     <style name="meal_category" parent="Widget.AppCompat.TextView">
-        <item name="android:textSize">18sp</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/quicksand_semibold</item>
         <item name="android:textColor">@color/md_theme_secondaryFixedDim</item>
     </style>
 </resources>

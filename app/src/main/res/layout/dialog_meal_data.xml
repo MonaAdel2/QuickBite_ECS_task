@@ -21,7 +21,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/tv_title_meal_dialog"
                 style="@style/text_sub_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
                         <com.google.android.material.textfield.TextInputLayout
                             android:id="@+id/txt_et_meal_name"
                             style="@style/ThemeOverlay.Material3.AutoCompleteTextView.FilledBox"
-                            android:layout_width="300dp"
+                            android:layout_width="250dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="24dp"
                             android:layout_marginTop="32dp"
@@ -47,7 +47,7 @@
                             app:endIconMode="clear_text"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView">
+                            app:layout_constraintTop_toBottomOf="@+id/tv_title_meal_dialog">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:layout_width="match_parent"
@@ -55,34 +55,57 @@
                                 android:imeOptions="actionNext" />
                         </com.google.android.material.textfield.TextInputLayout>
 
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/txt_et_meal_category"-->
+<!--                style="@style/ThemeOverlay.Material3.AutoCompleteTextView.FilledBox"-->
+<!--                android:layout_width="250dp"-->
+<!--                android:layout_height="61dp"-->
+<!--                android:layout_marginStart="24dp"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:layout_marginEnd="24dp"-->
+<!--                android:hint="Category"-->
+<!--                app:boxCornerRadiusBottomEnd="20dp"-->
+<!--                app:boxCornerRadiusBottomStart="20dp"-->
+<!--                app:boxCornerRadiusTopEnd="20dp"-->
+<!--                app:boxCornerRadiusTopStart="20dp"-->
+<!--                app:endIconMode="clear_text"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/txt_et_meal_name">-->
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:imeOptions="actionNext" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txt_et_meal_category"
-                style="@style/ThemeOverlay.Material3.AutoCompleteTextView.FilledBox"
-                android:layout_width="300dp"
-                android:layout_height="61dp"
-                android:layout_marginStart="24dp"
+                android:id="@+id/category_list_options"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="24dp"
                 android:hint="Category"
                 app:boxCornerRadiusBottomEnd="20dp"
                 app:boxCornerRadiusBottomStart="20dp"
                 app:boxCornerRadiusTopEnd="20dp"
                 app:boxCornerRadiusTopStart="20dp"
-                app:endIconMode="clear_text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/txt_et_meal_name"
+                app:layout_constraintStart_toStartOf="@+id/txt_et_meal_name"
                 app:layout_constraintTop_toBottomOf="@+id/txt_et_meal_name">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <AutoCompleteTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:imeOptions="actionNext" />
+                    android:inputType="none" />
+
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txt_et_meal_price"
                 style="@style/ThemeOverlay.Material3.AutoCompleteTextView.FilledBox"
-                android:layout_width="300dp"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
@@ -95,7 +118,7 @@
                 app:endIconMode="clear_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_et_meal_category">
+                app:layout_constraintTop_toBottomOf="@+id/category_list_options">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -107,11 +130,11 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/days_list"
-                style="@style/ThemeOverlay.Material3.AutoCompleteTextView.FilledBox"
-                android:layout_width="300dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:hint="Select Options"
+                android:hint="Select Days"
                 app:layout_constraintEnd_toEndOf="@+id/txt_et_meal_name"
                 app:layout_constraintStart_toStartOf="@+id/txt_et_meal_name"
                 app:layout_constraintTop_toBottomOf="@+id/txt_et_meal_price">
@@ -122,14 +145,16 @@
                     android:layout_height="wrap_content"
                     android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
                     android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
                     android:text="Select Days" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
 
             <Button
-                android:id="@+id/btn_add_meal_admin"
-                android:layout_width="300dp"
+                android:id="@+id/btn_submit_meal_admin"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="32dp"
