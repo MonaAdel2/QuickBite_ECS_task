@@ -4,11 +4,7 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "orders",
-    foreignKeys = [
-        ForeignKey(entity = User::class, parentColumns = ["userId"], childColumns = ["userId"]),
-        ForeignKey(entity = Meal::class, parentColumns = ["mealId"], childColumns = ["mealId"])
-    ])
+@Entity(tableName = "orders")
 data class Order(
     @PrimaryKey(autoGenerate = true)
     var orderId: Int? =null,

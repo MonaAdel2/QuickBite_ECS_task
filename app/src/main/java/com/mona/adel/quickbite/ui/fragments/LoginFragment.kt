@@ -233,7 +233,6 @@ class LoginFragment : Fragment() {
                 )
             )
 
-            Toast.makeText(requireContext(), "A dummy data is added successfully.", Toast.LENGTH_SHORT).show()
         }
     }
 }

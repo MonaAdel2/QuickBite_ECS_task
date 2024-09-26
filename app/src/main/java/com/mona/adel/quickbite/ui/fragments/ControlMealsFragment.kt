@@ -38,7 +38,7 @@ class ControlMealsFragment : Fragment() {
     private val categoriesOptions = listOf("Desserts", "Drinks", "Chicken" ,"Soups", "Salads", "Seafood", "Pasta", "Bakery")
 
     // Define the days' options and a list to store the selected days
-    private val options = arrayOf("Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+    private val daysOptions = arrayOf("Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
     private val selectedDays = booleanArrayOf(false, false, false, false, false, false, false)
     private val selectedDaysNamesList = mutableListOf<String>()
 
@@ -167,16 +167,16 @@ class ControlMealsFragment : Fragment() {
         builder.setTitle("Select Days")
 
         // Set multi-choice items
-        builder.setMultiChoiceItems(options, selectedDays) { dialog, which, isChecked ->
+        builder.setMultiChoiceItems(daysOptions, selectedDays) { dialog, which, isChecked ->
             selectedDays[which] = isChecked
         }
 
         // Set the positive button action
         builder.setPositiveButton("OK") { dialog, _ ->
 
-            for (i in options.indices) {
+            for (i in daysOptions.indices) {
                 if (selectedDays[i]) {
-                    selectedDaysNamesList.add(options[i].lowercase())
+                    selectedDaysNamesList.add(daysOptions[i].lowercase())
                 }
             }
 
@@ -193,7 +193,7 @@ class ControlMealsFragment : Fragment() {
 
     private fun updateSelectedOptionsTextView() {
         if (selectedDaysNamesList.isEmpty()) {
-            tvDialogSelectedDays.text = "Select Days"
+            tvDialogSelectedDays.text = "Click to Select Days"
         } else {
             tvDialogSelectedDays.text = selectedDaysNamesList.joinToString(", ")
                                     { day -> day.replaceFirstChar { it.uppercase() } }
@@ -234,9 +234,6 @@ class ControlMealsFragment : Fragment() {
         binding.txtEtMealPrice.editText?.setText(meal.price.toString())
 
         // Display selected days list as a string
-//        tvUpdatedMealSelectedDays = binding.tvSelectedOptions
-//        tvUpdatedMealSelectedDays.text = meal.days
-//            .joinToString(", ") { day -> day.replaceFirstChar { it.uppercase() } }
         tvDialogSelectedDays = binding.tvSelectedOptions
         tvDialogSelectedDays.text = meal.days
             .joinToString(", ") { day -> day.replaceFirstChar { it.uppercase() } }
@@ -246,9 +243,6 @@ class ControlMealsFragment : Fragment() {
         val selectedDaysNamesList = meal.days.toMutableList()
 
         // Show selected days when clicking the TextView
-//        tvUpdatedMealSelectedDays.setOnClickListener {
-//            showMultiSelectDialog(selectedDaysNamesList) // Pass the list to the dialog
-//        }
         tvDialogSelectedDays.setOnClickListener {
             showMultiSelectDialog(selectedDaysNamesList) // Pass the list to the dialog
         }
@@ -284,18 +278,18 @@ class ControlMealsFragment : Fragment() {
         builder.setTitle("Select Days")
 
         // Initialize selectedItems2 as a local variable
-        val selectedItems2 = BooleanArray(options.size) { false }
+        val selectedItems2 = BooleanArray(daysOptions.size) { false }
 
         // Set selected items based on the passed selectedDays
         selectedDays.forEach { day ->
-            val index = options.indexOfFirst { it.equals(day, ignoreCase = true) }
+            val index = daysOptions.indexOfFirst { it.equals(day, ignoreCase = true) }
             if (index != -1) {
                 selectedItems2[index] = true // Mark this day as selected
             }
         }
 
         // Set multi-choice items
-        builder.setMultiChoiceItems(options, selectedItems2) { _, which, isChecked ->
+        builder.setMultiChoiceItems(daysOptions, selectedItems2) { _, which, isChecked ->
             selectedItems2[which] = isChecked
         }
 
@@ -303,9 +297,9 @@ class ControlMealsFragment : Fragment() {
         builder.setPositiveButton("OK") { _, _ ->
             selectedDays.clear() // Clear the existing days
 
-            for (i in options.indices) {
+            for (i in daysOptions.indices) {
                 if (selectedItems2[i]) {
-                    selectedDays.add(options[i]) // Update selectedDays directly
+                    selectedDays.add(daysOptions[i]) // Update selectedDays directly
                 }
             }
 
@@ -322,8 +316,7 @@ class ControlMealsFragment : Fragment() {
 
     private fun updateSelectedDaysTextView(selectedDaysNames: MutableList<String>) {
         if (selectedDaysNames.isEmpty()) {
-//            tvUpdatedMealSelectedDays.text = "Select Days"
-            tvDialogSelectedDays.text = "Select Days"
+            tvDialogSelectedDays.text = "Click to Select Days"
         } else {
             tvDialogSelectedDays.text = selectedDaysNames.joinToString(", ")
                                     { day -> day.replaceFirstChar { it.uppercase() } }
